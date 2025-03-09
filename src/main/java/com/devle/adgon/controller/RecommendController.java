@@ -17,6 +17,7 @@ public class RecommendController {
     private final RecommendService recommendService;
 
     @PostMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<?> getMusicRecommend(
             @RequestBody QuestionnaireDTO questionnaire
     ) {
