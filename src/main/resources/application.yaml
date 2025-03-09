@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: adgon
+
+
+openai:
+  api:
+    url: 'https://api.openai.com/v1/chat/completions'
+    key: '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'
