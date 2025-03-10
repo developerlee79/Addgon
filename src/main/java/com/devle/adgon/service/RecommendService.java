@@ -38,8 +38,8 @@ public class RecommendService {
             - Recommend **exactly 3 bands** (no more, no less).\s
             - **Exclude bands the user already likes. (exclude bands in {{favorite_songs}})**\s
             - **Make the taste analysis warm and engaging.** \s
-            - Bands must have **millions of listeners** on streaming platforms.\s
-            - Songs must be **popular and well-known.** \s
+            - The recommended band must consist of two famous band(must have **millions of listeners** on streaming platforms), one less famous band(ex. rym-liked, pitchfork-style) \s
+            - It should be recommended in various genres, but based on user input. Expand the range of recommended bands. \s
             - Reasons must be in Korean, short (under 50 characters), and friendly.\s
             - Keep the format clean, no extra text or explanations.\s
             - **Do NOT create fake bands or songs.**\s
@@ -51,7 +51,7 @@ public class RecommendService {
             - **Music Discovery Habit:** {{music_discovery}} \s
             - **Favorite Songs (if provided):** {{favorite_songs}} \s
 
-            ### Response Format (Return only JSON, no extra text. Do not print out the examples as they are. In the examples, refer only to styles, and output different results depending on the actual input)\s
+            ### Response Format (Return only JSON, no extra text. Do not print out the examples as they are. In the examples, refer only to styles, and output different results depending on the actual input, If a user recommends a song, add that recommending it is a wonderful taste)\s
             {
                 "userAnalysis": "당신은 리듬과 사운드를 즐기는군요! 운동할 때 듣는 걸 보니 에너지가 넘치는 음악을 선호하시는 것 같아요. '무작위 재생' 스타일을 좋아하신다면 다양한 장르의 음악을 즐기는 개방적인 모습이네요! The Strokes를 좋아하신다니, 멋진 취향이에요! \uD83C\uDFA7",
                 "recommends": [
@@ -102,8 +102,8 @@ public class RecommendService {
                             Map.of("role", "system", "content", SYSTEM_PROMPT),
                             Map.of("role", "user", "content", userPreferenceString)
                     ),
-                    "max_tokens", 500,
-                    "temperature", 0.7
+                    "max_tokens", 600,
+                    "temperature", 0.6
             );
 
             String responseString = webClient.post()
