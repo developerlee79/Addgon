@@ -96,6 +96,8 @@ public class RecommendService {
                     favoriteSongs
             );
 
+            log.info("User Preference : " + userPreferenceString);
+
             Map<String, Object> requestBody = Map.of(
                     "model", "gpt-4o-mini",
                     "messages", List.of(
@@ -122,8 +124,6 @@ public class RecommendService {
                 log.error("Empty Chat Response");
                 throw new RuntimeException("Empty Chat Response");
             }
-
-            log.info("Response : " + responseString);
 
             JsonNode rootNode = objectMapper.readTree(responseString);
             String content = rootNode.path("choices").get(0).path("message").path("content").asText();
