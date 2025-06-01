@@ -4,12 +4,7 @@ spring:
   config:
     import: optional:file:.env[.properties]
 
-jasypt:
-  encryptor:
-    password: ${ENCRYPT_KEY}
-    algorithm: 'PBEWithMD5AndDES'
-
 openai:
   api:
     url: 'https://api.openai.com/v1/chat/completions'
-    key: 'ENC(lFhBH/bGdlfbnvdIwevm+TLyRGbwnwt81gCIHxFKW74s6vws5NWRk+nBJiKOBNAbr6UUjhwVsq9qbiYtPmkJWZG9p8jT0xiPe6bFc5NrYQ4bDqYDBb4hgjekzcUo0GxM2+fD3I+JgYyanPx5x2PZ60nHoWzf0N0e8emyleHY/Ug+piTju6NjlHkpflAAzuY/Vh7xMd6Zxqq8yrCpT8Y+DYOgScV8PpCuZoDQtAhbMC4=)'
+    key: ${OPENAI_KEY}
