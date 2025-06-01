@@ -12,6 +12,7 @@ gradle
 .factorypath
 .project
 .settings
+.env
 .springBeans
 .sts4-cache
 bin/
